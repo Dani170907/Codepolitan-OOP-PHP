@@ -28,6 +28,11 @@ class User
     {
         return $this->sayPrivate();
     }
+
+    public function level()
+    {
+        return $this->level;
+    }
 }
 
 class Customer extends User
@@ -36,6 +41,12 @@ class Customer extends User
     {
         return $this->sayProtect();
     }
+
+    public function regID()
+    {
+        return $this->regID;
+    }
+
 }
 
 $u = new User;
@@ -44,8 +55,6 @@ $u->lastName = 'Class';
 
 echo $u->fullName(). "<br/>";
 echo $u->sayMe(). "<br/>";
-// echo $u->regID() . "<br/>";
-// echo $u->level() . "<br/>";
 
 $c = new Customer;
 $c->firstName = 'Customer';
@@ -53,3 +62,6 @@ $c->lastName = 'Doe';
 
 echo $c->fullName() . "<br/>";
 echo $c->sayParent() . "<br/>";
+
+echo $c->regID() . "<br/>";
+echo $u->level() . "<br/>";
