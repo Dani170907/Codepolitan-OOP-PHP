@@ -7,11 +7,11 @@ class Student
     public $total;
     public $target;
 
-    public function __construct($total, $target) 
+    public function __construct($args = []) 
     {
         self::$instanceCount++;
-        $this->total = $total;
-        $this->target = $target;
+        $this->total = $args['total'] ?? $this->total;
+        $this->target = $args['target'] ?? $this->target;
     }
 }
 
@@ -33,15 +33,15 @@ class Senior extends Student
     public $target = 3;
 }
 
-$elementary = new Elementary(2, 1);
+$elementary = new Elementary(['total' => 2, 'target' => 1]);
 echo "Elementary: {$elementary->total}, ";
 echo "Target: {$elementary->target} <br/>";
 
-$junior = new Junior(4, 2);
+$junior = new Junior(['total' => 4, 'target' => 2]);
 echo "Junior: {$junior->total}, ";
 echo "Target: {$junior->target} <br/>";
 
-$senior = new Senior(5, 3);
+$senior = new Senior();
 echo "Senior: {$senior->total}, ";
 echo "Target: {$senior ->target} <br/>";
 
